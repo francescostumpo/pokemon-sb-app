@@ -1,0 +1,97 @@
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.accenture.example</groupId>
+  <artifactId>pokemon-apis-sync</artifactId>
+  <version>1.0.0</version>
+  <packaging>jar</packaging>
+  <name>Pokemon API Sync</name>
+  <!--Generate API interface class-->
+
+  <properties>
+    <api-package>com.accenture.example.service.api</api-package>
+    <model-package>com.accenture.example.service.api.model</model-package>
+    <java.version>17</java.version>
+    <maven.plugin.validation>VERBOSE</maven.plugin.validation>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+    <extension-processor.version>3.2.0</extension-processor.version>
+    <extensions-openapi-generators.version>1.4.15</extensions-openapi-generators.version>
+    <openapi-generator-maven-plugin.version>7.10.0</openapi-generator-maven-plugin.version>
+    <org.projectlombok.version>1.18.34</org.projectlombok.version>
+    <sonar.skip>true</sonar.skip>
+  </properties>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.openapitools</groupId>
+        <artifactId>openapi-generator-maven-plugin</artifactId>
+        <version>${openapi-generator-maven-plugin.version}</version>
+        <executions>
+          <execution>
+            <id>Pokemon-API</id>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+            <configuration>
+              <inputSpec>${project.basedir}/pokemon-api.yaml</inputSpec>
+              <generatorName>spring</generatorName>
+              <apiPackage>${api-package}</apiPackage>
+              <modelPackage>${model-package}</modelPackage>
+              <modelNameSuffix>Dto</modelNameSuffix>
+              <generateSupportingFiles>false</generateSupportingFiles>
+              <generateAliasAsModel>true</generateAliasAsModel>
+              <configOptions>
+                <oas3>true</oas3>
+                <useSpringController>true</useSpringController>
+                <openApiNullable>false</openApiNullable>
+                <useSpringfox>false</useSpringfox>
+                <interfaceOnly>true</interfaceOnly>
+                <useSpringBoot3>true</useSpringBoot3>
+                <skipDefaultInterface>true</skipDefaultInterface>
+                <containerDefaultToNull>true</containerDefaultToNull>
+                <legacyDiscriminatorBehavior>false</legacyDiscriminatorBehavior>
+              </configOptions>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.11.0</version>
+        <configuration>
+          <proc>none</proc>
+          <annotationProcessorPaths>
+            <!-- do not run processors -->
+          </annotationProcessorPaths>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.springdoc</groupId>
+      <artifactId>springdoc-openapi-starter-webmvc-api</artifactId>
+      <version>2.6.0</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>jakarta.annotation</groupId>
+      <artifactId>jakarta.annotation-api</artifactId>
+      <version>2.1.1</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>${org.projectlombok.version}</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+</project>

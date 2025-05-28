@@ -1,0 +1,36 @@
+openapi: 3.0.1
+info:
+  title: Pokemon API
+  description:
+    This is the API to test pokemons
+  version: '@project.version@'
+tags:
+  - name: Pokemon
+    description: Operations to test candidates
+paths:
+  /pokemon:
+    post:
+      tags:
+        - Pokemon
+      summary: Save a new Pokemon
+      operationId: savePokemon
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Pokemon'
+      responses:
+        '201':
+          description: Pokemon saved
+components:
+  schemas:
+    Pokemon:
+      type: object
+      properties:
+        name:
+          type: string
+        type:
+          type: string
+        level:
+          type: integer
