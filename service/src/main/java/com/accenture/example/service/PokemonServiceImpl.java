@@ -1,6 +1,5 @@
 package com.accenture.example.service;
 
-import com.accenture.example.entity.PokemonEntity;
 import com.accenture.example.mappers.PokemonMapper;
 import com.accenture.example.repository.PokemonRepository;
 import com.allianz.bmp.claims.solution.offering.service.api.model.PokemonDto;
@@ -15,8 +14,10 @@ public class PokemonServiceImpl implements PokemonService{
 
     @Override
     public void savePokemon(PokemonDto pokemonDto) {
+        log.info("I do nothing (for now)");
+        /* TODO the following code only works once the mapper is ready
         PokemonEntity entity = repository.save(mapper.toEntity(pokemonDto));
         log.info("Created a new pokemon with id {}", entity.getId());
-        repository.findById(entity.getId());
+        */
     }
 }

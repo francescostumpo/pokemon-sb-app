@@ -1,7 +1,8 @@
 
 package com.accenture.example.entity;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -13,7 +14,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class PokemonEntity {
     @Id
     private String id;
-    private String name;
+    private String pokeName;
     private String type;
     private int level;
 }
