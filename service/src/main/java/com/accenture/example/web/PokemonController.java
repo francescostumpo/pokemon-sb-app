@@ -2,8 +2,8 @@
 package com.accenture.example.web;
 
 import com.accenture.example.service.PokemonService;
-import com.allianz.bmp.claims.solution.offering.service.api.PokemonApi;
-import com.allianz.bmp.claims.solution.offering.service.api.model.PokemonDto;
+import com.accenture.example.service.api.PokemonApi;
+import com.accenture.example.service.api.model.PokemonDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;

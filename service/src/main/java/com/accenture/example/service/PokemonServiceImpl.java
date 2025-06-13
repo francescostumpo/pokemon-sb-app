@@ -2,7 +2,7 @@ package com.accenture.example.service;
 
 import com.accenture.example.mappers.PokemonMapper;
 import com.accenture.example.repository.PokemonRepository;
-import com.allianz.bmp.claims.solution.offering.service.api.model.PokemonDto;
+import com.accenture.example.service.api.model.PokemonDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
